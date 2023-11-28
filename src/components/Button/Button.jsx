@@ -23,15 +23,18 @@ export const Button = ({
 
   const renderText = () => (
     <>
-      <Text style={styles.text}>{title}</Text>
-      {loading && <ActivityIndicator color={theme.button.text} />}
+      {loading ? (
+        <ActivityIndicator color={theme.button.text} size={28} />
+      ) : (
+        <Text style={styles.text}>{title}</Text>
+      )}
     </>
   );
 
   return (
     <TouchableOpacity
       style={[
-        loading ? styles.button : styles.disabledButton,
+        loading ? styles.disabledButton : styles.button,
         {width: width, height: height, margin: margin},
       ]}
       {...props}
