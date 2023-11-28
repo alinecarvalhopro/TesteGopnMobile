@@ -1,6 +1,6 @@
 export const theme = {
     colors: {
-        backgrondcolor: '#FFFFFF',
+        backgroundcolor: '#FFFFFF',
     },
 
     fonts: {
@@ -9,7 +9,8 @@ export const theme = {
     },
 
     text: {
-        title: '#476EE6'
+        title: '#476EE6',
+        textDetail: '#787486',
     },
 
     button: {

@@ -9,6 +9,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 export const Input = ({
   label,
   value,
+  containerStyle,
   placeholder,
   placeholderTextColor,
   errorMessage,
@@ -25,7 +26,7 @@ export const Input = ({
   const borderColor = isError ? theme.input.error : theme.input.borderColor;
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={[styles.inputContainer, containerStyle]}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={[styles.textInput, {borderColor}]}

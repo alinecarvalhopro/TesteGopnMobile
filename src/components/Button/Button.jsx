@@ -9,7 +9,7 @@ export const Button = ({
   type,
   loading,
   disabled,
-  margin,
+  marginTop,
   height,
   width,
   onPress,
@@ -35,10 +35,10 @@ export const Button = ({
     <TouchableOpacity
       style={[
         loading ? styles.disabledButton : styles.button,
-        {width: width, height: height, margin: margin},
+        {width: width, height: height, marginTop: marginTop},
       ]}
       {...props}
-      margin={margin}
+      marginTop={marginTop}
       width={width}
       height={height}
       type={type}
