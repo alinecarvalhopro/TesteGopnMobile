@@ -13,7 +13,9 @@ export const theme = {
     },
 
     button: {
-        backgroundcolor: '#476EE6'
+        backgroundcolor: '#476EE6',
+        disabledButtonBackgroundcolor: '#787486',
+        text: '#FFFFFF'
     },
 
     input: {
