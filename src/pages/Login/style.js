@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         marginBottom: 30
     },
     title: {
-        fontFamily: 'Poppins-Medium',
+        fontFamily: theme.fonts.PoppinsRegular,
         fontSize: 24,
         color: theme.text.title,
         marginBottom: 30,

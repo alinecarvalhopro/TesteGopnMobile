@@ -19,12 +19,12 @@ export const Login = () => {
   const navigation = useNavigation();
 
   const handleEmail = event => {
-    setEmail(event.nativeEvent.text);
+    setEmail(event.nativeEvent);
     setErrorMessage('');
   };
 
   const handlePassword = event => {
-    setPassword(event.nativeEvent.text);
+    setPassword(event.nativeEvent);
     setErrorMessage('');
   };
 
@@ -40,7 +40,7 @@ export const Login = () => {
         errorMessage={errorMessage}
         placeholder="Insira o seu e-mail"
         label="E-mail"
-        onChange={handleEmail}
+        onChangeText={handleEmail}
         containerStyle={{marginBottom: 20}}
       />
       <Input
@@ -49,7 +49,7 @@ export const Login = () => {
         secureTextEntry
         placeholder="Insira a sua senha"
         label="Senha"
-        onChange={handlePassword}
+        onChangeText={handlePassword}
       />
       <Button
         marginTop={30}
