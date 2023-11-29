@@ -23,5 +23,8 @@ export const styles = StyleSheet.create({
         color: theme.text.subtitle,
         fontSize: 18,
         marginLeft: 10
+    },
+    formBox: {
+        margin: 30,
     }
 })
