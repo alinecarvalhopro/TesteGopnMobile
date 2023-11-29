@@ -8,6 +8,7 @@ import {View, Image, TouchableOpacity, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import {Card} from './Card/Card';
 
 export const Dashboard = () => {
@@ -65,7 +66,7 @@ export const Dashboard = () => {
       </View>
       <TouchableOpacity
         style={styles.floatButton}
-        onPress={() => console.log('Add a new card')}>
+        onPress={() => navigation.navigate('CreateCard')}>
         <MaterialIcons name="add" size={35} color={theme.button.text} />
       </TouchableOpacity>
     </View>
