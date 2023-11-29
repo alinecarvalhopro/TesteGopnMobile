@@ -12,16 +12,23 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Button} from '../../components/Button/Button';
 import {SelectPicker} from '../../components/SelectPicker/SelectPicker';
 import {Input} from '../../components/Input/Input';
+import {TextArea} from '../../components/TexteArea/TextArea';
 
 export const CreateCard = () => {
   const [name, setName] = useState('');
   const [selectedValue, setSelectedValue] = useState(null);
+  const [text, setText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigation = useNavigation();
 
   const handleName = event => {
     setName(event.nativeEvent);
+    setErrorMessage('');
+  };
+
+  const handleText = event => {
+    setText(event.nativeEvent);
     setErrorMessage('');
   };
   return (
@@ -53,6 +60,14 @@ export const CreateCard = () => {
           label="Categoria"
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
+        />
+        <TextArea
+          value={text}
+          errorMessage={errorMessage}
+          placeholder="Escreva algo"
+          label="Texto"
+          onChangeText={handleText}
+          containerStyle={{marginTop: 20}}
         />
       </View>
     </View>

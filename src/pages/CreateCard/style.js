@@ -26,5 +26,11 @@ export const styles = StyleSheet.create({
     },
     formBox: {
         margin: 30,
-    }
+    },
+    editor: {
+        flex: 1,
+        width: '100%',
+        borderWidth: 1,
+        borderColor: 'gray',
+      },
 })
