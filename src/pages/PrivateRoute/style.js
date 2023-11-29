@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 import { theme } from '../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.backgroundcolorDisplay.backgroundcolor
     },
     logo: {
-        width: 200,
-        height: 200,
+        width: '200@s',
+        height: '200@s',
         resizeMode: 'contain',
     },
 });

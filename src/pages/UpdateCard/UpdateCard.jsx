@@ -54,7 +54,7 @@ export const UpdateCard = () => {
           placeholder="Insira um nome"
           label="Nome"
           onChangeText={handleName}
-          containerStyle={{marginBottom: 20}}
+          containerStyle={styles.input}
         />
         <SelectPicker
           label="Categoria"
@@ -67,7 +67,7 @@ export const UpdateCard = () => {
           placeholder="Escreva algo"
           label="Texto"
           onChangeText={handleText}
-          containerStyle={{marginTop: 20}}
+          containerStyle={styles.textArea}
         />
       </View>
     </View>
