@@ -1,4 +1,4 @@
-export const colorsApp = {
+const colorsApp = {
     brand: '#476EE6',
 
     black: '#000000',
@@ -26,7 +26,7 @@ export const theme = {
     text: {
         title: colorsApp.brand,
         textDetail: colorsApp.greyScale80,
-        titlePrivacyPolicy: colorsApp.black,
+        subtitle: colorsApp.black,
         actionText: colorsApp.brand,
     },
 
@@ -57,5 +57,13 @@ export const theme = {
         icon: colorsApp.brand,
         options: colorsApp.brand,
         backgroundcolor: colorsApp.white,
+    },
+
+    sectionsBox: {
+        borderColor: colorsApp.greyScale60
+    },
+
+    card: {
+        text: colorsApp.black
     }
 }

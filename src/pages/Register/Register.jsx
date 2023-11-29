@@ -6,9 +6,12 @@ import {Text, View, Image, TouchableOpacity} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import {Input} from '../../components/Input/Input';
 import {Button} from '../../components/Button/Button';
 import {Checkbox} from '../../components/CheckBox/CheckBox';
+import {theme} from '../../global/styles/theme';
 
 export const Register = () => {
   const [name, setName] = useState('');
@@ -42,10 +45,21 @@ export const Register = () => {
 
   return (
     <View style={styles.registerContainer}>
-      <Image
-        style={styles.logo}
-        source={require('../../images/png/logo.png')}
-      />
+      <View style={styles.header}>
+        <Image
+          style={styles.logo}
+          source={require('../../images/png/logo.png')}
+        />
+        <TouchableOpacity>
+          <MaterialIcons
+            onPress={() => navigation.goBack()}
+            name="arrow-back"
+            size={30}
+            color={theme.header.icon}
+            style={styles.iconGoBack}
+          />
+        </TouchableOpacity>
+      </View>
       <Text style={styles.title}>Dados de acesso</Text>
       <Input
         value={name}

@@ -8,6 +8,14 @@ export const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  iconGoBack: {
+    marginBottom: 20
+  },
   logo: {
     marginBottom: 30
   },
@@ -21,7 +29,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: theme.fonts.PoppinsSemiBold,
     fontSize: 14,
-    color: theme.text.titlePrivacyPolicy
+    color: theme.text.subtitle
   },
   privatePolicyBox: {
     marginRight: 20,
