@@ -56,7 +56,7 @@ export const Login = () => {
         height={48}
         loading={loading}
         title="Entrar"
-        onPress={() => console.log('clicou')}
+        onPress={() => navigation.navigate('DashboardDrawer')}
       />
       <Text style={styles.textDetail}>Ainda não tem cadastro?</Text>
       <Button

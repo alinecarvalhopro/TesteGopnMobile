@@ -1,6 +1,20 @@
+export const colorsApp = {
+    brand: '#476EE6',
+
+    black: '#000000',
+    greyScale80: '#787486',
+    greyScale60: '#A0A0A0',
+    greyScale40: '#D7D7D7',
+    greyScale20: '#D8D8D8',
+    white: '#FFFFFF',
+
+    error: '#FF0000',
+}
+
 export const theme = {
-    colors: {
-        backgroundcolor: '#FFFFFF',
+
+    backgroundcolorDisplay: {
+        backgroundcolor: colorsApp.white,
     },
 
     fonts: {
@@ -10,27 +24,38 @@ export const theme = {
     },
 
     text: {
-        title: '#476EE6',
-        textDetail: '#787486',
-        titlePrivacyPolicy: '#000000',
-        actionText: '#476EE6',
+        title: colorsApp.brand,
+        textDetail: colorsApp.greyScale80,
+        titlePrivacyPolicy: colorsApp.black,
+        actionText: colorsApp.brand,
     },
 
     button: {
-        backgroundcolor: '#476EE6',
-        disabledButtonBackgroundcolor: '#787486',
-        text: '#FFFFFF'
+        backgroundcolor: colorsApp.brand,
+        disabledButtonBackgroundcolor: colorsApp.greyScale80,
+        text: colorsApp.white
     },
 
     input: {
-        label: '#000000',
-        borderColor: '#D7D7D7',
-        placeholder: '#A0A0A0',
-        error: '#FF0000',
-        eyeMask: '#000000A6',
+        label: colorsApp.black,
+        borderColor: colorsApp.greyScale40,
+        placeholder: colorsApp.greyScale60,
+        error: colorsApp.error,
+        eyeMask: colorsApp.greyScale80,
     },
 
     checkBox: {
-        backgroundcolor: '#476EE6',
+        backgroundcolor: colorsApp.brand,
+    },
+
+    header: {
+        borderColor: colorsApp.greyScale20,
+        icon: colorsApp.brand,
+    },
+
+    drawer: {
+        icon: colorsApp.brand,
+        options: colorsApp.brand,
+        backgroundcolor: colorsApp.white,
     }
 }

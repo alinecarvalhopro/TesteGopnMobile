@@ -4,7 +4,7 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
     loginContainer: {
         flex: 1,
-        backgroundColor: theme.colors.backgroundcolor,
+        backgroundColor: theme.backgroundcolorDisplay.backgroundcolor,
         padding: 20,
         justifyContent: 'center',
     },
