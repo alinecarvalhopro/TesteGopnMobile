@@ -1,26 +1,32 @@
-import { StyleSheet } from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
 import { theme } from '../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     loginContainer: {
-        flex: 1,
-        backgroundColor: theme.backgroundcolorDisplay.backgroundcolor,
-        padding: 20,
-        justifyContent: 'center',
+      flex: 1,
+      backgroundColor: theme.backgroundcolorDisplay.backgroundcolor,
+      padding: '20@s',
+      justifyContent: 'center',
     },
     logo: {
-        alignSelf: 'center',
-        marginBottom: 30
+      alignSelf: 'center',
+      marginBottom: '30@s',
     },
     title: {
-        fontFamily: theme.fonts.PoppinsRegular,
-        fontSize: 24,
-        color: theme.text.title,
-        marginBottom: 30,
-        textAlign: 'center'
+      fontFamily: theme.fonts.PoppinsRegular,
+      fontSize: '24@s',
+      color: theme.text.title,
+      marginBottom: '30@s',
+      textAlign: 'center',
+    },
+    input: {
+      marginBottom: '20@s',
     },
     textDetail: {
-        marginTop: 30,
-        textAlign: 'center'
-    }
-})
+      marginVertical: '20@s',
+      textAlign: 'center',
+    },
+    button: {
+      height: '48@s',
+    },
+  });

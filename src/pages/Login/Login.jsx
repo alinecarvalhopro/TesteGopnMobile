@@ -1,7 +1,6 @@
 import {styles} from './style';
 
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 import {Text, View, Image} from 'react-native';
 
@@ -41,7 +40,7 @@ export const Login = () => {
         placeholder="Insira o seu e-mail"
         label="E-mail"
         onChangeText={handleEmail}
-        containerStyle={{marginBottom: 20}}
+        containerStyle={styles.input}
       />
       <Input
         value={password}
@@ -50,18 +49,17 @@ export const Login = () => {
         placeholder="Insira a sua senha"
         label="Senha"
         onChangeText={handlePassword}
+        containerStyle={styles.input}
       />
       <Button
-        marginTop={30}
-        height={48}
+        aditionalStyle={styles.button}
         loading={loading}
         title="Entrar"
         onPress={() => navigation.navigate('DashboardDrawer')}
       />
       <Text style={styles.textDetail}>Ainda não tem cadastro?</Text>
       <Button
-        marginTop={30}
-        height={48}
+        aditionalStyle={styles.button}
         title="Cadastrar"
         onPress={() => navigation.navigate('Register')}
       />

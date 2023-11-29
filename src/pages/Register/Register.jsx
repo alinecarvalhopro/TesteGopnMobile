@@ -67,7 +67,7 @@ export const Register = () => {
         placeholder="Insira o seu nome"
         label="Nome"
         onChangeText={handleName}
-        containerStyle={{marginBottom: 20}}
+         containerStyle={styles.input}
       />
       <Input
         value={email}
@@ -75,7 +75,7 @@ export const Register = () => {
         placeholder="Insira o seu e-mail"
         label="E-mail"
         onChangeText={handleEmail}
-        containerStyle={{marginBottom: 20}}
+         containerStyle={styles.input}
       />
       <Input
         value={password}
@@ -84,7 +84,7 @@ export const Register = () => {
         placeholder="Insira uma senha"
         label="Senha"
         onChangeText={handlePassword}
-        containerStyle={{marginBottom: 20}}
+         containerStyle={styles.input}
       />
       <Input
         value={confirmPassword}
@@ -93,7 +93,7 @@ export const Register = () => {
         placeholder="Confirme sua senha"
         label="Confirme a senha"
         onChangeText={handleConfirmPassword}
-        containerStyle={{marginBottom: 20}}
+        containerStyle={styles.input}
       />
       <Text style={styles.titlePrivacyPolicy}>Termos de uso e privacidade</Text>
       <View style={styles.privatePolicyBox}>
@@ -107,7 +107,11 @@ export const Register = () => {
           Termos de uso e privacidade
         </Text>
       </TouchableOpacity>
-      <Button marginTop={20} height={48} title="Cadastrar" loading={loading} />
+      <Button
+        aditionalStyle={styles.button}
+        title="Cadastrar"
+        loading={loading}
+      />
     </View>
   );
 };

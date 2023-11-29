@@ -10,6 +10,7 @@ export const Button = ({
   loading,
   disabled,
   marginTop,
+  aditionalStyle,
   height,
   width,
   onPress,
@@ -35,7 +36,7 @@ export const Button = ({
     <TouchableOpacity
       style={[
         loading ? styles.disabledButton : styles.button,
-        {width: width, height: height, marginTop: marginTop},
+        {width: width, height: height, marginTop: marginTop}, aditionalStyle
       ]}
       {...props}
       marginTop={marginTop}
