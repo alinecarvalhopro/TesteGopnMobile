@@ -45,7 +45,7 @@ export const CreateCard = () => {
           </TouchableOpacity>
           <Text style={styles.titlePage}>Criar Card</Text>
         </View>
-        <Button title="Criar" width={80} height={35} />
+        <Button title="Criar" aditionalStyle={styles.button} />
       </View>
       <View style={styles.formBox}>
         <Input
@@ -54,7 +54,7 @@ export const CreateCard = () => {
           placeholder="Insira um nome"
           label="Nome"
           onChangeText={handleName}
-          containerStyle={{marginBottom: 20}}
+          containerStyle={styles.input}
         />
         <SelectPicker
           label="Categoria"
@@ -67,7 +67,7 @@ export const CreateCard = () => {
           placeholder="Escreva algo"
           label="Texto"
           onChangeText={handleText}
-          containerStyle={{marginTop: 20}}
+          containerStyle={styles.textArea}
         />
       </View>
     </View>

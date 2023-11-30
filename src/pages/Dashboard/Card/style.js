@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
 import { theme } from '../../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     cardContainer: {
-        height: 250,
-        borderRadius: 20,
+        height: '250@s',
+        borderRadius: '20@s',
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,
-        marginTop: 30,
+        marginTop: '30@s',
     },
     headerContainer: {
         borderBottomWidth: 1,
@@ -15,18 +15,22 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingRight: 20
+        paddingRight: '20@s'
+    },
+    button: {
+        width: '80@s',
+        height: '35@s'
     },
     title: {
         color: theme.text.subtitle,
         fontFamily: theme.fonts.PoppinsMedium,
-        fontSize: 16,
-        padding: 20,
+        fontSize: '16@s',
+        padding: '20@s',
     },
     text: {
         fontFamily: theme.fonts.PoppinsRegular,
-        fontSize: 16,
+        fontSize: '16@s',
         color: theme.card.text,
-        padding: 20
+        padding: '20@s'
     }
 })

@@ -45,7 +45,7 @@ export const UpdateCard = () => {
           </TouchableOpacity>
           <Text style={styles.titlePage}>Editar Card</Text>
         </View>
-        <Button title="Editar" width={80} height={35} />
+        <Button title="Editar" aditionalStyle={styles.button} />
       </View>
       <View style={styles.formBox}>
         <Input

@@ -1,23 +1,23 @@
-import { StyleSheet } from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
 import { theme } from '../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     dashboardContainer: {
         flex: 1,
         position: 'relative',
     },
     header: {
-        height: 145,
-        padding: 30,
+        height: '145@s',
+        padding: '30@s',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        borderRadius: 20,
+        borderRadius: '20@s',
         borderColor: theme.header.borderColor,
         borderWidth: 1
     },
     sectionsBox: {
-        padding: 30,
+        padding: '30@s',
     },
     title: {
         fontFamily: theme.fonts.PoppinsSemiBold,
@@ -25,36 +25,36 @@ export const styles = StyleSheet.create({
         color: theme.text.title
     },
     categoriesSection: {
-        borderRadius: 20,
+        borderRadius: '20@s',
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,
-        marginTop: 30,
-        padding: 20,
+        marginTop: '30@s',
+        padding: '20@s',
     },
     subtitle: {
         color: theme.text.subtitle,
         fontFamily: theme.fonts.PoppinsMedium,
-        fontSize: 16,
-        paddingBottom: 20,
+        fontSize: '16@s',
+        paddingBottom: '20@s',
         borderBottomWidth: 1,
         borderBottomColor: theme.sectionsBox.borderColor
     },
     addCategoryButton: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 10,
+        padding: '10@s',
     },
     addCategoryIconButton: {
-        marginRight: 10
+        marginRight: '10@s'
     },
     addCategoryTextButton: {
         color: theme.text.actionText,
         fontFamily: theme.fonts.PoppinsRegular,
-        fontSize: 16,
+        fontSize: '16@s',
     },
     floatButton: {
-        width: 60,
-        height: 60,
+        width: '60@s',
+        height: '60@s',
         borderRadius: 100,
         backgroundColor: theme.button.backgroundcolor,
         position: 'absolute',

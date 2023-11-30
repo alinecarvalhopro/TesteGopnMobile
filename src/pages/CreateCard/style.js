@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 import { theme } from '../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     createCardContainer: {
         flex: 1,
         position: 'relative',
     },
     header: {
-        height: 69,
-        paddingHorizontal: 30,
+        height: '69@s',
+        paddingHorizontal: '30@s',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -21,16 +21,20 @@ export const styles = StyleSheet.create({
     },
     titlePage: {
         color: theme.text.subtitle,
-        fontSize: 18,
-        marginLeft: 10
+        fontSize: '18@s',
+        marginLeft: '10@s'
     },
     formBox: {
-        margin: 30,
+        margin: '30@s',
     },
-    editor: {
-        flex: 1,
-        width: '100%',
-        borderWidth: 1,
-        borderColor: 'gray',
-      },
+    button: {
+        width: '80@s',
+        height: '30@s'
+    },
+    input: {
+        marginBottom: '20@s'
+    },
+    textArea: {
+        marginTop: '20@s'
+    }
 })

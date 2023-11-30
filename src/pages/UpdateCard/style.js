@@ -27,11 +27,9 @@ export const styles = ScaledSheet.create({
     formBox: {
         margin: '30@s',
     },
-    editor: {
-        flex: 1,
-        width: '100%',
-        borderWidth: 1,
-        borderColor: 'gray',
+    button: {
+        width: '80@s',
+        height: '30@s'
     },
     input: {
         marginBottom: '20@s'

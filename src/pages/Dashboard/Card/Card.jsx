@@ -15,8 +15,7 @@ export const Card = ({title, text}) => {
           <Text style={styles.title}>{title}</Text>
           <Button
             title="Editar"
-            width={80}
-            height={35}
+            aditionalStyle={styles.button}
             onPress={() => navigation.navigate('UpdateCard')}
           />
         </View>
