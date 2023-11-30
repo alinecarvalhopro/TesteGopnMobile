@@ -1,9 +1,10 @@
+import {theme} from '../../global/styles/theme';
+
 import React, {useState} from 'react';
 
 import {View, Text, TouchableOpacity} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {theme} from '../../global/styles/theme';
 
 export const Checkbox = ({text}) => {
   const [checked, setChecked] = useState(false);

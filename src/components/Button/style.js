@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
 import { theme } from '../../global/styles/theme';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
     button: {
         borderRadius: 60,
         backgroundColor: theme.button.backgroundcolor,
@@ -17,6 +17,6 @@ export const styles = StyleSheet.create({
     text: {
         color: theme.button.text,
         fontFamily: theme.fonts.PoppinsMedium,
-        fontSize: 18,
+        fontSize: '18@s',
     }
 })
