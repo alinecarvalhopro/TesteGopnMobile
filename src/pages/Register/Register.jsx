@@ -2,7 +2,7 @@ import {styles} from './style';
 
 import React, {useState} from 'react';
 
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {Text, View, Image, TouchableOpacity, ScrollView,} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -44,7 +44,8 @@ export const Register = () => {
   };
 
   return (
-    <View style={styles.registerContainer}>
+    <ScrollView style={styles.registerContainer}>
+      <View style={styles.registerContent}>
       <View style={styles.header}>
         <Image
           style={styles.logo}
@@ -112,6 +113,8 @@ export const Register = () => {
         title="Cadastrar"
         loading={loading}
       />
-    </View>
+      </View>
+      <View style={{padding: 10}}></View>
+    </ScrollView>
   );
 };

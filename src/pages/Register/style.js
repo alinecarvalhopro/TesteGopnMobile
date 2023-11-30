@@ -3,10 +3,13 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = ScaledSheet.create({
   registerContainer: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: theme.backgroundcolorDisplay.backgroundcolor,
     padding: '20@s',
-    justifyContent: 'center',
+  },
+    registerContent: {
+    flexGrow: 1,
+    paddingBottom: '20@s', 
   },
   header: {
     flexDirection: 'row',
