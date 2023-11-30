@@ -12,9 +12,10 @@ export const styles = ScaledSheet.create({
     },
     textInput: {
         height: '50@s',
-        marginTop: '10@s',
+        marginTop: '8@s',
         borderWidth: 1,
         borderRadius: 12,
+        borderColor: theme.input.borderColor,
         paddingHorizontal: '16@s',
     },
     errorMessage: {

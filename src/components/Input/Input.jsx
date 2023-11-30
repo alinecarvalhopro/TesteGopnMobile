@@ -4,7 +4,7 @@ import {theme} from '../../global/styles/theme';
 import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 export const Input = ({
   label,
@@ -37,9 +37,9 @@ export const Input = ({
         secureTextEntry={currentSecure}
       />
       {secureTextEntry && (
-        <MaterialIcons
+        <Feather
           onPress={handleOnPressEye}
-          name={currentSecure ? 'visibility' : 'visibility-off'}
+          name={currentSecure ? 'eye' : 'eye-off'}
           size={28}
           color={theme.input.eyeMask}
           style={styles.eyeMask}

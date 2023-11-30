@@ -14,6 +14,7 @@ export const styles = ScaledSheet.create({
         marginTop: '10@s',
         borderWidth: 1,
         borderRadius: 12,
+        borderColor: theme.input.borderColor,
         paddingHorizontal: '16@s',
     },
     errorMessage: {

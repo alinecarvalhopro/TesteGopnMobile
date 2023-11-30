@@ -26,9 +26,10 @@ export const styles = ScaledSheet.create({
     fontFamily: theme.fonts.PoppinsMedium,
     fontSize: '24@s',
     color: theme.text.title,
-    marginBottom: '30@s',
+    marginBottom: '20@s',
+    fontWeight: 800
   },
-  input: { marginBottom: 20 },
+  input: { marginBottom: '10@s' },
   titlePrivacyPolicy: {
     marginBottom: '10@s',
     fontFamily: theme.fonts.PoppinsSemiBold,

@@ -2,7 +2,7 @@ import {styles} from './style';
 
 import React, {useState} from 'react';
 
-import {Text, View, Image, TouchableOpacity, ScrollView,} from 'react-native';
+import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -46,75 +46,73 @@ export const Register = () => {
   return (
     <ScrollView style={styles.registerContainer}>
       <View style={styles.registerContent}>
-      <View style={styles.header}>
-        <Image
-          style={styles.logo}
-          source={require('../../images/png/logo.png')}
-        />
-        <TouchableOpacity>
-          <MaterialIcons
-            onPress={() => navigation.goBack()}
-            name="arrow-back"
-            size={30}
-            color={theme.header.icon}
-            style={styles.iconGoBack}
+        <View style={styles.header}>
+          <Image
+            style={styles.logo}
+            source={require('../../images/png/logo.png')}
           />
-        </TouchableOpacity>
-      </View>
-      <Text style={styles.title}>Dados de acesso</Text>
-      <Input
-        value={name}
-        errorMessage={errorMessage}
-        placeholder="Insira o seu nome"
-        label="Nome"
-        onChangeText={handleName}
-         containerStyle={styles.input}
-      />
-      <Input
-        value={email}
-        errorMessage={errorMessage}
-        placeholder="Insira o seu e-mail"
-        label="E-mail"
-        onChangeText={handleEmail}
-         containerStyle={styles.input}
-      />
-      <Input
-        value={password}
-        errorMessage={errorMessage}
-        secureTextEntry
-        placeholder="Insira uma senha"
-        label="Senha"
-        onChangeText={handlePassword}
-         containerStyle={styles.input}
-      />
-      <Input
-        value={confirmPassword}
-        errorMessage={errorMessage}
-        secureTextEntry
-        placeholder="Confirme sua senha"
-        label="Confirme a senha"
-        onChangeText={handleConfirmPassword}
-        containerStyle={styles.input}
-      />
-      <Text style={styles.titlePrivacyPolicy}>Termos de uso e privacidade</Text>
-      <View style={styles.privatePolicyBox}>
-        <Checkbox
-          text="Ao clicar neste botão, eu concordo com os termos de uso e privacidade
-          da nossa empresa."
+          <TouchableOpacity>
+            <MaterialIcons
+              onPress={() => navigation.goBack()}
+              name="arrow-back"
+              size={30}
+              color={theme.header.icon}
+              style={styles.iconGoBack}
+            />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.title}>Dados de acesso</Text>
+        <Input
+          value={name}
+          errorMessage={errorMessage}
+          placeholder="Insira o seu nome"
+          label="Nome"
+          onChangeText={handleName}
+          containerStyle={styles.input}
         />
-      </View>
-      <TouchableOpacity>
-        <Text style={styles.privatePolicyNavigate}>
+        <Input
+          value={email}
+          errorMessage={errorMessage}
+          placeholder="Insira o seu e-mail"
+          label="E-mail"
+          onChangeText={handleEmail}
+          containerStyle={styles.input}
+        />
+        <Input
+          value={password}
+          errorMessage={errorMessage}
+          secureTextEntry
+          placeholder="Insira uma senha"
+          label="Senha"
+          onChangeText={handlePassword}
+          containerStyle={styles.input}
+        />
+        <Input
+          value={confirmPassword}
+          errorMessage={errorMessage}
+          secureTextEntry
+          placeholder="Confirme sua senha"
+          label="Confirme a senha"
+          onChangeText={handleConfirmPassword}
+          containerStyle={styles.input}
+        />
+        <Text style={styles.titlePrivacyPolicy}>
           Termos de uso e privacidade
         </Text>
-      </TouchableOpacity>
-      <Button
-        aditionalStyle={styles.button}
-        title="Cadastrar"
-        loading={loading}
-      />
+        <View style={styles.privatePolicyBox}>
+          <Checkbox text="Ao clicar neste botão, eu concordo com os termos de uso e privacidade da nossa empresa." />
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.privatePolicyNavigate}>
+            Termos de uso e privacidade
+          </Text>
+        </TouchableOpacity>
+        <Button
+          aditionalStyle={styles.button}
+          title="Cadastrar"
+          loading={loading}
+        />
       </View>
-      <View style={{padding: 10}}></View>
     </ScrollView>
   );
 };

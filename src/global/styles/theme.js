@@ -20,7 +20,8 @@ export const theme = {
     fonts: {
         PoppinsRegular: 'Poppins-Regular',
         PoppinsMedium: 'Poppins-Medium',
-        PoppinsSemiBold: 'Poppins-SemiBold'
+        PoppinsSemiBold: 'Poppins-SemiBold',
+        PoppinsBold: 'Poppins-Bold'
     },
 
     text: {

@@ -7,7 +7,7 @@ import {Text, View, TouchableOpacity} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 import {Button} from '../../components/Button/Button';
 import {SelectPicker} from '../../components/SelectPicker/SelectPicker';
@@ -36,8 +36,8 @@ export const UpdateCard = () => {
       <View style={styles.header}>
         <View style={styles.titleIconBox}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <MaterialIcons
-              name="arrow-back"
+            <Feather
+              name="arrow-left-circle"
               size={28}
               color={theme.header.icon}
               style={styles.eyeMask}

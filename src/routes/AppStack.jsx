@@ -15,7 +15,10 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import ChessIcon from '../images/svg/chess.svg'
+import TaskSquareIcon from '../images/svg/task-square.svg'
+import UserIcon from '../images/svg/user.svg'
+import LogoutIcon from '../images/svg/logout.svg'
 
 import {PrivateRoute} from '../pages/PrivateRoute/PrivateRoute';
 import {Login} from '../pages/Login/Login';
@@ -31,8 +34,19 @@ const Drawer = createDrawerNavigator();
 const CustomDrawerContent = props => {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{backgroundColor: theme.drawer.backgroundcolor}}>
-        <View style={{padding: 20, alignItems: 'left'}}>
+      <View
+        style={{
+          backgroundColor: theme.drawer.backgroundcolor,
+          borderTopRightRadius: 20,
+          borderBottomRightRadius: 20,
+        }}>
+        <View
+          style={{
+            padding: 20,
+            alignItems: 'left',
+            borderTopRightRadius: 20,
+            borderBottomRightRadius: 20,
+          }}>
           <Image
             source={require('../images/png/logo.png')}
             style={{width: 150, resizeMode: 'contain'}}
@@ -42,9 +56,9 @@ const CustomDrawerContent = props => {
       <DrawerItemList {...props} />
       <TouchableOpacity>
         <DrawerItem
-          label="Logout"
+          label="Sair"
           icon={({color, size}) => (
-            <MaterialIcons name="logout" size={size} color={color} />
+            <LogoutIcon size={size} color={color} />
           )}
           onPress={() => console.log('logout')}
         />
@@ -71,7 +85,7 @@ const DrawerNavigation = () => {
         component={Dashboard}
         options={{
           drawerIcon: ({color, size}) => (
-            <MaterialIcons name="book" size={size} color={color} />
+            <ChessIcon size={size} color={color} />
           ),
           drawerLabel: 'Playbooks',
         }}
@@ -81,7 +95,7 @@ const DrawerNavigation = () => {
         component={GenericPage}
         options={{
           drawerIcon: ({color, size}) => (
-            <MaterialIcons name="comment" size={size} color={color} />
+            <TaskSquareIcon size={size} color={color} />
           ),
           drawerLabel: 'Generic Page',
         }}
@@ -91,7 +105,7 @@ const DrawerNavigation = () => {
         component={GenericPage}
         options={{
           drawerIcon: ({color, size}) => (
-            <MaterialIcons name="person" size={size} color={color} />
+            <UserIcon name="person" size={size} color={color} />
           ),
           drawerLabel: 'Minha conta',
         }}
