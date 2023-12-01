@@ -27,7 +27,6 @@ export const styles = ScaledSheet.create({
     fontSize: '24@s',
     color: theme.text.title,
     marginBottom: '20@s',
-    fontWeight: 800
   },
   input: { marginBottom: '10@s' },
   titlePrivacyPolicy: {

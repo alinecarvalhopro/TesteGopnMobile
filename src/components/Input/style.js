@@ -28,6 +28,6 @@ export const styles = ScaledSheet.create({
     eyeMask: {
         position: 'absolute',
         right: '16@s',
-        top: '40@s'
+        top: '45@s'
     }
 });

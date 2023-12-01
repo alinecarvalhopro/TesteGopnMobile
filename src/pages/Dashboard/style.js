@@ -3,7 +3,7 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = ScaledSheet.create({
     dashboardContainer: {
-        flex: 1,
+        flexGrow: 1,
         position: 'relative',
     },
     header: {

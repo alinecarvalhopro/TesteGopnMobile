@@ -12,7 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {Button} from '../../components/Button/Button';
 import {SelectPicker} from '../../components/SelectPicker/SelectPicker';
 import {Input} from '../../components/Input/Input';
-import {TextArea} from '../../components/TexteArea/TextArea';
+import {TextArea} from '../../components/TextArea/TextArea';
 
 export const UpdateCard = () => {
   const [name, setName] = useState('');

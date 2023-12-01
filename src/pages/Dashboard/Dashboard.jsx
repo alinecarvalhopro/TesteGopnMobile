@@ -1,20 +1,26 @@
 import {styles} from './style';
 import {theme} from '../../global/styles/theme';
 
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {View, Image, TouchableOpacity, Text} from 'react-native';
+import {View, Image, TouchableOpacity, Text, ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {Card} from './Card/Card';
+import {UserContext} from '../../context/UserContext';
+import {PlaybookContext} from '../../context/PlaybookContext';
 
 export const Dashboard = () => {
+  const {user} = useContext(UserContext);
+  const {playbooks} = useContext(PlaybookContext);
+
   const navigation = useNavigation();
+
   return (
-    <View style={styles.dashboardContainer}>
+    <ScrollView style={styles.dashboardContainer}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <MaterialIcons
@@ -69,6 +75,6 @@ export const Dashboard = () => {
         onPress={() => navigation.navigate('CreateCard')}>
         <MaterialIcons name="add" size={35} color={theme.button.text} />
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };

@@ -18,30 +18,37 @@ export const Input = ({
   isError = false,
 }) => {
   const [currentSecure, setCurrentSecure] = useState(!!secureTextEntry);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleOnPressEye = () => {
     setCurrentSecure(current => !current);
   };
 
   const borderColor = isError ? theme.input.error : theme.input.borderColor;
+  const focusedBorderColor = theme.input.onFocus;
 
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
-        style={[styles.textInput, {borderColor}]}
+        style={[
+          styles.textInput,
+          {borderColor: isFocused ? focusedBorderColor : borderColor},
+        ]}
         placeholderTextColor={placeholderTextColor}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={currentSecure}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       {secureTextEntry && (
         <Feather
           onPress={handleOnPressEye}
           name={currentSecure ? 'eye' : 'eye-off'}
           size={28}
-          color={theme.input.eyeMask}
+          color={isFocused ? theme.input.onFocus : theme.input.eyeMask}
           style={styles.eyeMask}
         />
       )}

@@ -6,7 +6,7 @@ import React from 'react';
 
 import {Image, TouchableOpacity, View} from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   createDrawerNavigator,
@@ -15,10 +15,10 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import ChessIcon from '../images/svg/chess.svg'
-import TaskSquareIcon from '../images/svg/task-square.svg'
-import UserIcon from '../images/svg/user.svg'
-import LogoutIcon from '../images/svg/logout.svg'
+import ChessIcon from '../images/svg/chess.svg';
+import TaskSquareIcon from '../images/svg/task-square.svg';
+import UserIcon from '../images/svg/user.svg';
+import LogoutIcon from '../images/svg/logout.svg';
 
 import {PrivateRoute} from '../pages/PrivateRoute/PrivateRoute';
 import {Login} from '../pages/Login/Login';
@@ -28,10 +28,14 @@ import {Dashboard} from '../pages/Dashboard/Dashboard';
 import {CreateCard} from '../pages/CreateCard/CreateCard';
 import {GenericPage} from '../pages/GenericPage/GenericPage';
 
+import {UserProvider} from '../context/UserContext';
+import {PlaybookProvider} from '../context/PlaybookContext';
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
+  const navigation = useNavigation();
   return (
     <DrawerContentScrollView {...props}>
       <View
@@ -57,10 +61,8 @@ const CustomDrawerContent = props => {
       <TouchableOpacity>
         <DrawerItem
           label="Sair"
-          icon={({color, size}) => (
-            <LogoutIcon size={size} color={color} />
-          )}
-          onPress={() => console.log('logout')}
+          icon={({color, size}) => <LogoutIcon size={size} color={color} />}
+          onPress={() => navigation.navigate('Login')}
         />
       </TouchableOpacity>
     </DrawerContentScrollView>
@@ -117,18 +119,22 @@ const DrawerNavigation = () => {
 const AppStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="PrivateRoute"
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="PrivateRoute" component={PrivateRoute} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="DashboardDrawer" component={DrawerNavigation} />
-        <Stack.Screen name="UpdateCard" component={UpdateCard} />
-        <Stack.Screen name="CreateCard" component={CreateCard} />
-      </Stack.Navigator>
+      <UserProvider>
+        <PlaybookProvider>
+          <Stack.Navigator
+            initialRouteName="PrivateRoute"
+            screenOptions={{
+              headerShown: false,
+            }}>
+            <Stack.Screen name="PrivateRoute" component={PrivateRoute} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="DashboardDrawer" component={DrawerNavigation} />
+            <Stack.Screen name="UpdateCard" component={UpdateCard} />
+            <Stack.Screen name="CreateCard" component={CreateCard} />
+          </Stack.Navigator>
+        </PlaybookProvider>
+      </UserProvider>
     </NavigationContainer>
   );
 };

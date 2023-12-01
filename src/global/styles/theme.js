@@ -43,6 +43,7 @@ export const theme = {
         placeholder: colorsApp.greyScale60,
         error: colorsApp.error,
         eyeMask: colorsApp.greyScale80,
+        onFocus: colorsApp.brand
     },
 
     checkBox: {

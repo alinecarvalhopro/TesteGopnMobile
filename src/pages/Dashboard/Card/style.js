@@ -1,9 +1,9 @@
-import {ScaledSheet} from 'react-native-size-matters';
+import { ScaledSheet } from 'react-native-size-matters';
 import { theme } from '../../../global/styles/theme';
 
 export const styles = ScaledSheet.create({
     cardContainer: {
-        height: '250@s',
+        minHeight: '250@s',
         borderRadius: '20@s',
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,

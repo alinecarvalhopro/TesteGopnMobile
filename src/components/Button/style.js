@@ -17,6 +17,6 @@ export const styles = ScaledSheet.create({
     text: {
         color: theme.button.text,
         fontFamily: theme.fonts.PoppinsMedium,
-        fontSize: '18@s',
+        fontSize: '15@s',
     }
 })

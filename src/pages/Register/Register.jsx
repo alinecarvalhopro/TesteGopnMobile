@@ -6,7 +6,7 @@ import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 import {Input} from '../../components/Input/Input';
 import {Button} from '../../components/Button/Button';
@@ -51,11 +51,10 @@ export const Register = () => {
             style={styles.logo}
             source={require('../../images/png/logo.png')}
           />
-          <TouchableOpacity>
-            <MaterialIcons
-              onPress={() => navigation.goBack()}
-              name="arrow-back"
-              size={30}
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Feather
+              name="arrow-left-circle"
+              size={28}
               color={theme.header.icon}
               style={styles.iconGoBack}
             />
