@@ -36,8 +36,24 @@ export const UserProvider = ({children}) => {
     navigation.navigate('Login');
   };
 
+  const submitRegister = async (formData, setLoading, reset) => {
+    setLoading(true);
+    try {
+      await api.post('users', formData); 
+      setTimeout(() => {
+        console.log('tudo certo')
+        navigation.navigate('Login');
+      }, 3000);
+      reset();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <UserContext.Provider value={{user, submitLogin, logout}}>
+    <UserContext.Provider value={{user, submitLogin, logout, submitRegister}}>
       {children}
     </UserContext.Provider>
   );

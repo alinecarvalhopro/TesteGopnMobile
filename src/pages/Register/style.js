@@ -20,7 +20,7 @@ export const styles = ScaledSheet.create({
     marginBottom: '20@s'
   },
   logo: {
-    marginBottom: '30@s'
+    marginBottom: '20@s'
   },
   title: {
     fontFamily: theme.fonts.PoppinsMedium,
@@ -44,6 +44,10 @@ export const styles = ScaledSheet.create({
     color: theme.text.actionText,
     fontFamily: theme.fonts.PoppinsMedium,
     fontSize: '14@s',
+  },
+  errorPrivatePolicy: {
+    marginLeft: '30@s',
+    color: theme.input.error
   },
   button: {
     height: '48@s',
