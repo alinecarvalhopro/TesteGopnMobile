@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 
 import {theme} from '../global/styles/theme';
 
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {Image, TouchableOpacity, View} from 'react-native';
 
@@ -28,13 +28,15 @@ import {Dashboard} from '../pages/Dashboard/Dashboard';
 import {CreateCard} from '../pages/CreateCard/CreateCard';
 import {GenericPage} from '../pages/GenericPage/GenericPage';
 
-import {UserProvider} from '../context/UserContext';
+import {UserContext, UserProvider} from '../context/UserContext';
+
 import {PlaybookProvider} from '../context/PlaybookContext';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = props => {
+  const {logout} = useContext(UserContext);
   const navigation = useNavigation();
   return (
     <DrawerContentScrollView {...props}>
@@ -62,7 +64,7 @@ const CustomDrawerContent = props => {
         <DrawerItem
           label="Sair"
           icon={({color, size}) => <LogoutIcon size={size} color={color} />}
-          onPress={() => navigation.navigate('Login')}
+          onPress={logout}
         />
       </TouchableOpacity>
     </DrawerContentScrollView>

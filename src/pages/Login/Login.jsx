@@ -1,30 +1,39 @@
 import {styles} from './style';
 
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, Keyboard} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
+
+import {useForm, Controller} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+
+import {schema} from '../../schema/userLogin.schema';
+
+import {UserContext} from '../../context/UserContext';
 
 import {Input} from '../../components/Input/Input';
 import {Button} from '../../components/Button/Button';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const {submitLogin} = useContext(UserContext);
 
   const navigation = useNavigation();
 
-  const handleEmail = event => {
-    setEmail(event.nativeEvent);
-    setErrorMessage('');
-  };
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const handlePassword = event => {
-    setPassword(event.nativeEvent);
-    setErrorMessage('');
+  const submit = formData => {
+    submitLogin(formData, setLoading, reset);
+    Keyboard.dismiss();
   };
 
   return (
@@ -34,28 +43,49 @@ export const Login = () => {
         source={require('../../images/png/logo.png')}
       />
       <Text style={styles.title}>Dados de acesso</Text>
-      <Input
-        value={email}
-        errorMessage={errorMessage}
-        placeholder="Insira o seu e-mail"
-        label="E-mail"
-        onChangeText={handleEmail}
-        containerStyle={styles.input}
+      <Controller
+        control={control}
+        render={({field}) => (
+          <Input
+            value={field.value}
+            errorMessage={errors.email?.message}
+            isError={errors.email?.message}
+            placeholder="Insira o seu e-mail"
+            label="E-mail"
+            onChangeText={value => {
+              field.onChange(value);
+            }}
+            containerStyle={styles.input}
+          />
+        )}
+        name="email"
+        defaultValue=""
       />
-      <Input
-        value={password}
-        errorMessage={errorMessage}
-        secureTextEntry
-        placeholder="Insira a sua senha"
-        label="Senha"
-        onChangeText={handlePassword}
-        containerStyle={styles.input}
+      <Controller
+        control={control}
+        render={({field}) => (
+          <Input
+            value={field.value}
+            errorMessage={errors.password?.message}
+            isError={errors.password?.message}
+            secureTextEntry
+            placeholder="Insira a sua senha"
+            label="Senha"
+            onChangeText={value => {
+              field.onChange(value);
+            }}
+            containerStyle={styles.input}
+          />
+        )}
+        name="password"
+        defaultValue=""
       />
       <Button
         aditionalStyle={styles.button}
         loading={loading}
         title="Entrar"
-        onPress={() => navigation.navigate('DashboardDrawer')}
+        type="submit"
+        onPress={handleSubmit(submit)}
       />
       <Text style={styles.textDetail}>Ainda não tem cadastro?</Text>
       <Button

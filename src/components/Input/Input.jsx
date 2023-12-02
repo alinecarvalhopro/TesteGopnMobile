@@ -16,6 +16,7 @@ export const Input = ({
   onChangeText,
   secureTextEntry,
   isError = false,
+  ...rest
 }) => {
   const [currentSecure, setCurrentSecure] = useState(!!secureTextEntry);
   const [isFocused, setIsFocused] = useState(false);
@@ -42,6 +43,8 @@ export const Input = ({
         secureTextEntry={currentSecure}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        isError={!!errorMessage}
+        {...rest}
       />
       {secureTextEntry && (
         <Feather
@@ -52,9 +55,7 @@ export const Input = ({
           style={styles.eyeMask}
         />
       )}
-      {isError && errorMessage && (
-        <Text style={styleInput.errorMessage}>{errorMessage}</Text>
-      )}
+      {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
     </View>
   );
 };

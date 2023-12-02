@@ -112,6 +112,7 @@ export const Register = () => {
           loading={loading}
         />
       </View>
+      <View style={{height: 20}}></View>
     </ScrollView>
   );
 };

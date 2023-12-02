@@ -8,7 +8,7 @@ export const styles = ScaledSheet.create({
     },
     header: {
         height: '145@s',
-        padding: '30@s',
+        padding: '20@s',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -17,7 +17,7 @@ export const styles = ScaledSheet.create({
         borderWidth: 1
     },
     sectionsBox: {
-        padding: '30@s',
+        padding: '20@s',
     },
     title: {
         fontFamily: theme.fonts.PoppinsSemiBold,
@@ -45,7 +45,7 @@ export const styles = ScaledSheet.create({
         padding: '10@s',
     },
     addCategoryIconButton: {
-        marginRight: '10@s'
+        marginRight: '5@s'
     },
     addCategoryTextButton: {
         color: theme.text.actionText,
@@ -58,8 +58,8 @@ export const styles = ScaledSheet.create({
         borderRadius: 100,
         backgroundColor: theme.button.backgroundcolor,
         position: 'absolute',
-        bottom: 30,
-        right: 30,
+        bottom: 20,
+        right: 20,
         alignItems: 'center',
         justifyContent: 'center',
         shadowOffset: {

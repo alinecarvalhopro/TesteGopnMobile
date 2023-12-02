@@ -8,7 +8,7 @@ export const styles = ScaledSheet.create({
     },
     header: {
         height: '69@s',
-        paddingHorizontal: '30@s',
+        paddingHorizontal: '20@s',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -25,7 +25,7 @@ export const styles = ScaledSheet.create({
         marginLeft: '10@s'
     },
     formBox: {
-        margin: '30@s',
+        margin: '20@s',
     },
     button: {
         width: '80@s',
