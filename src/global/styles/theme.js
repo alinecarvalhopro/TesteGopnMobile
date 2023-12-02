@@ -9,6 +9,7 @@ const colorsApp = {
     white: '#FFFFFF',
 
     error: '#FF0000',
+    success: '#43D1A1'
 }
 
 export const theme = {
@@ -67,5 +68,10 @@ export const theme = {
 
     card: {
         text: colorsApp.black
+    },
+
+    registredSuccessfullyPage: {
+        icon: colorsApp.success,
+        message: colorsApp.greyScale80
     }
 }

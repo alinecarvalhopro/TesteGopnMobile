@@ -40,10 +40,7 @@ export const UserProvider = ({children}) => {
     setLoading(true);
     try {
       await api.post('users', formData); 
-      setTimeout(() => {
-        console.log('tudo certo')
-        navigation.navigate('Login');
-      }, 3000);
+        navigation.navigate('RegisteredSuccessfully');
       reset();
     } catch (error) {
       console.log(error);

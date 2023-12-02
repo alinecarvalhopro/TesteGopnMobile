@@ -23,8 +23,9 @@ import LogoutIcon from '../images/svg/logout.svg';
 import {PrivateRoute} from '../pages/PrivateRoute/PrivateRoute';
 import {Login} from '../pages/Login/Login';
 import {Register} from '../pages/Register/Register';
-import {UpdateCard} from '../pages/UpdateCard/UpdateCard';
+import { RegisteredSuccessfully } from '../pages/RegisteredSuccessfully/RegisteredSuccessfully';
 import {Dashboard} from '../pages/Dashboard/Dashboard';
+import {UpdateCard} from '../pages/UpdateCard/UpdateCard';
 import {CreateCard} from '../pages/CreateCard/CreateCard';
 import {GenericPage} from '../pages/GenericPage/GenericPage';
 
@@ -131,6 +132,7 @@ const AppStack = () => {
             <Stack.Screen name="PrivateRoute" component={PrivateRoute} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="RegisteredSuccessfully" component={RegisteredSuccessfully} />
             <Stack.Screen name="DashboardDrawer" component={DrawerNavigation} />
             <Stack.Screen name="UpdateCard" component={UpdateCard} />
             <Stack.Screen name="CreateCard" component={CreateCard} />
