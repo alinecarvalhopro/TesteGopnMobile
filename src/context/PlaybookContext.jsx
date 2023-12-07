@@ -17,7 +17,8 @@ export const PlaybookProvider = ({children}) => {
     setLoading(true);
     try {
       const response = await api.post('/playbooks', formData);
-      setPlaybooks([...playbooks, response.data]);
+      const newPlaybook = Array.isArray(playbooks) ? playbooks : [];
+      setPlaybooks([...newPlaybook, response.data]);
       reset();
       Keyboard.dismiss()
     } catch (error) {

@@ -2,16 +2,12 @@ import React, {createContext, useState, useEffect} from 'react';
 
 import {Keyboard} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
-
 import api from '../services/api';
 
 export const CategoryContext = createContext();
 
 export const CategoryProvider = ({children}) => {
   const [categories, setCategories] = useState([]);
-
-  const navigation = useNavigation();
 
   const fetchCategories = async () => {
     try {
@@ -29,15 +25,10 @@ export const CategoryProvider = ({children}) => {
     setloading(true);
     try {
       const response = await api.post('/categories', formData);
-      console.log(response.data)
-      setCategories([...categories, response.data]);
-      // setCategories(prevCategories => {
-      //   return [...prevCategories, response.data];
-      // });
+      const newcategory = Array.isArray(categories) ? categories : [];
+      setCategories([...newcategory, response.data]);
       reset();
       Keyboard.dismiss();
-      // fetchCategories();
-      // navigation.navigate('DashboardDrawer');
     } catch (error) {
       console.error(error);
     } finally {
