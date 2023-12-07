@@ -17,7 +17,7 @@ export const CategoryProvider = ({children}) => {
       }
     };
     fetchCategories();
-  }, []);
+  }, [categories]);
 
   const createCategory = async (formData, reset, setloading) => {
     setloading(true);

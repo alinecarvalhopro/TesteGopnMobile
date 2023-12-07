@@ -39,6 +39,12 @@ export const styles = ScaledSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: theme.sectionsBox.borderColor
     },
+    warningWithoutCategories: {
+        minHeight: '39@s',
+        color: theme.text.textDetail,
+        fontFamily: theme.fonts.PoppinsMedium,
+        fontSize: '15@s'
+    },
     addCategoryButton: {
         height: '39@s',
         flexDirection: 'row',
@@ -51,6 +57,12 @@ export const styles = ScaledSheet.create({
         color: theme.text.actionText,
         fontFamily: theme.fonts.PoppinsMedium,
         fontSize: '16@s',
+    },
+    warningWithoutPlaybooks: {
+        marginTop: '20@s',
+        color: theme.text.textDetail,
+        fontFamily: theme.fonts.PoppinsMedium,
+        fontSize: '18@s'
     },
     floatButton: {
         width: '60@s',

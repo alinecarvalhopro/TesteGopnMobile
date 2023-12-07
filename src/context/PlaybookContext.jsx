@@ -1,5 +1,7 @@
 import React, {createContext, useState} from 'react';
 
+import {Keyboard} from 'react-native';
+
 import api from '../services/api';
 
 export const PlaybookContext = createContext();
@@ -13,6 +15,7 @@ export const PlaybookProvider = ({children}) => {
       const response = await api.post('/playbooks', formData);
       setPlaybooks([...playbooks, response.data]);
       reset();
+      Keyboard.dismiss()
     } catch (error) {
       console.log(error);
     } finally {

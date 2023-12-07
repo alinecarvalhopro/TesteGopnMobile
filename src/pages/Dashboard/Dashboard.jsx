@@ -54,9 +54,15 @@ export const Dashboard = () => {
         <View style={styles.categoriesSection}>
           <Text style={styles.subtitle}>Categorias</Text>
           <View>
-            {categories.map(category => (
-              <CategoryButton key={category.id} name={category.name} />
-            ))}
+            {categories && categories.length > 0 ? (
+              categories.map(category => (
+                <CategoryButton key={category.id} name={category.name} />
+              ))
+            ) : (
+              <Text style={styles.warningWithoutCategories}>
+                Adicione uma categoria para cadastrar um Playbook
+              </Text>
+            )}
           </View>
           <TouchableOpacity
             style={styles.addCategoryButton}
@@ -73,21 +79,32 @@ export const Dashboard = () => {
           </TouchableOpacity>
         </View>
         <View>
-          {playbooks.map(playbook => (
-            <PlaybookCard
-              key={playbook.id}
-              title={playbook.name}
-              text={playbook.description}
-              id={playbook.id}
-            />
-          ))}
+          {playbooks && playbooks.length > 0 ? (
+            playbooks
+              .slice()
+              .reverse()
+              .map(playbook => (
+                <PlaybookCard
+                  key={playbook.id}
+                  title={playbook.name}
+                  text={playbook.description}
+                  id={playbook.id}
+                />
+              ))
+          ) : (
+            <Text style={styles.warningWithoutPlaybooks}>
+              Seus Playbooks cadastrados aparecerão aqui.
+            </Text>
+          )}
         </View>
       </View>
-      <TouchableOpacity
-        style={styles.floatButton}
-        onPress={() => navigation.navigate('CreateCard')}>
-        <MaterialIcons name="add" size={35} color={theme.button.text} />
-      </TouchableOpacity>
+      {categories && categories.length > 0 ? (
+        <TouchableOpacity
+          style={styles.floatButton}
+          onPress={() => navigation.navigate('CreateCard')}>
+          <MaterialIcons name="add" size={35} color={theme.button.text} />
+        </TouchableOpacity>
+      ) : null}
     </ScrollView>
   );
 };
