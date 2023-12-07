@@ -73,5 +73,10 @@ export const theme = {
     registredSuccessfullyPage: {
         icon: colorsApp.success,
         message: colorsApp.greyScale80
+    },
+
+    categoryButton: {
+        text: colorsApp.brand,
+        backgroundcolor: colorsApp.white
     }
 }

@@ -1,22 +1,29 @@
 import {styles} from './style';
 
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {View, Image} from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useNavigation} from '@react-navigation/native';
+import { UserContext } from '../../context/UserContext';
 
 export const PrivateRoute = () => {
+  const {setUserId} = useContext(UserContext);
+
   const navigation = useNavigation();
 
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const storedUser = await AsyncStorage.getItem('@USERID');
-        setTimeout(() => {
-          
-          if (storedUser) {
+        const userData = await AsyncStorage.getItem('@USERID');
+        if (userData) {
+          const id = JSON.parse(userData);
+          setUserId(id)
+        }
+
+        setTimeout(() => {  
+          if (userData) {
             navigation.navigate('DashboardDrawer');
           } else {
             navigation.navigate('Login');

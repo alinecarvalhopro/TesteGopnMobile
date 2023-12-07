@@ -10,24 +10,19 @@ import {useNavigation} from '@react-navigation/native';
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 
-import {createCardSchema} from '../../schema/playbookCreateCard.schema';
+import {createCategorySchema} from '../../schema/categoryCreate.schema';
 
-import {PlaybookContext} from '../../context/PlaybookContext';
-import {UserContext} from '../../context/UserContext';
+import {CategoryContext} from '../../context/CategoryContext';
 
 import Feather from 'react-native-vector-icons/Feather';
 
 import {Button} from '../../components/Button/Button';
-import {SelectPicker} from '../../components/SelectPicker/SelectPicker';
 import {Input} from '../../components/Input/Input';
-import {TextArea} from '../../components/TextArea/TextArea';
 
-export const CreateCard = () => {
+export const CreateCategory = () => {
   const [loading, setLoading] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
 
-  const {userId} = useContext(UserContext);
-  const {createPlaybook} = useContext(PlaybookContext);
+  const {createCategory} = useContext(CategoryContext);
 
   const navigation = useNavigation();
 
@@ -37,16 +32,12 @@ export const CreateCard = () => {
     formState: {errors},
     reset,
   } = useForm({
-    resolver: yupResolver(createCardSchema),
+    resolver: yupResolver(createCategorySchema),
   });
 
   const onSubmit = formData => {
-    const formDataWithCategoryAndUserId = {
-      ...formData,
-      categoryId: selectedValue,
-      userId: userId,
-    };
-    createPlaybook(formDataWithCategoryAndUserId, setLoading, reset);
+    createCategory(formData, reset, setLoading);
+    navigation.goBack();
   };
 
   return (
@@ -61,7 +52,7 @@ export const CreateCard = () => {
               style={styles.eyeMask}
             />
           </TouchableOpacity>
-          <Text style={styles.titlePage}>Criar Card</Text>
+          <Text style={styles.titlePage}>Criar Categoria</Text>
         </View>
         <Button
           title="Criar"
@@ -86,27 +77,6 @@ export const CreateCard = () => {
             />
           )}
           name="name"
-          defaultValue=""
-        />
-        <SelectPicker
-          label="Categoria"
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
-        />
-        <Controller
-          control={control}
-          render={({field}) => (
-            <TextArea
-              value={field.value}
-              errorMessage={errors.description?.message}
-              isError={errors.description?.message}
-              placeholder="Escreva algo"
-              label="Texto"
-              onChangeText={field.onChange}
-              containerStyle={styles.textArea}
-            />
-          )}
-          name="description"
           defaultValue=""
         />
       </View>

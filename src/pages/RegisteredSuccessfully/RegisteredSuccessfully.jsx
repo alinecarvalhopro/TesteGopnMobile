@@ -1,14 +1,13 @@
 import {styles} from './style';
+import { theme } from '../../global/styles/theme';
 
 import React, {useEffect} from 'react';
-import {View, Image, Text} from 'react-native';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {View, Text} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
 import Feather from 'react-native-vector-icons/Feather';
-import { theme } from '../../global/styles/theme';
 
 export const RegisteredSuccessfully = () => {
   const navigation = useNavigation();

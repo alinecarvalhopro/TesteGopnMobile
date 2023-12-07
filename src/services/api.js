@@ -2,7 +2,7 @@ import { create } from 'apisauce'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const api = create({
-  baseURL: 'https://fake-api-wit5.onrender.com',
+  baseURL: 'baseUrl',
   timeout: 15000
 })
 

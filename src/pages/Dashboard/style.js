@@ -14,7 +14,7 @@ export const styles = ScaledSheet.create({
         justifyContent: 'space-between',
         borderRadius: '20@s',
         borderColor: theme.header.borderColor,
-        borderWidth: 1
+        borderWidth: 1,
     },
     sectionsBox: {
         padding: '20@s',
@@ -40,16 +40,16 @@ export const styles = ScaledSheet.create({
         borderBottomColor: theme.sectionsBox.borderColor
     },
     addCategoryButton: {
+        height: '39@s',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '10@s',
     },
     addCategoryIconButton: {
         marginRight: '5@s'
     },
     addCategoryTextButton: {
         color: theme.text.actionText,
-        fontFamily: theme.fonts.PoppinsRegular,
+        fontFamily: theme.fonts.PoppinsMedium,
         fontSize: '16@s',
     },
     floatButton: {
@@ -58,8 +58,11 @@ export const styles = ScaledSheet.create({
         borderRadius: 100,
         backgroundColor: theme.button.backgroundcolor,
         position: 'absolute',
-        bottom: 20,
-        right: 20,
+        zIndex: 10,
+        // bottom: '20@s',
+        // right: '20@s',
+        right: '20@s',
+        top: '155@s',
         alignItems: 'center',
         justifyContent: 'center',
         shadowOffset: {

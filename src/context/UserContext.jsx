@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
-  const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   const navigation = useNavigation();
 
@@ -17,9 +17,9 @@ export const UserProvider = ({children}) => {
     setLoading(true);
     try {
       const {data} = await api.post('login', formData);
-      await AsyncStorage.setItem('@TOKEN', data.accessToken);
+      await AsyncStorage.setItem('@TOKEN', data.token);
       await AsyncStorage.setItem('@USERID', String(data.user.id));
-      setUser(data.user);
+      setUserId(data.user.id);
       navigation.navigate('DashboardDrawer');
       reset();
     } catch (error) {
@@ -32,15 +32,15 @@ export const UserProvider = ({children}) => {
   const logout = () => {
     AsyncStorage.removeItem('@TOKEN');
     AsyncStorage.removeItem('@USERID');
-    setUser(null);
+    setUserId(null);
     navigation.navigate('Login');
   };
 
   const submitRegister = async (formData, setLoading, reset) => {
     setLoading(true);
     try {
-      await api.post('users', formData); 
-        navigation.navigate('RegisteredSuccessfully');
+      await api.post('users', formData);
+      navigation.navigate('RegisteredSuccessfully');
       reset();
     } catch (error) {
       console.log(error);
@@ -50,7 +50,8 @@ export const UserProvider = ({children}) => {
   };
 
   return (
-    <UserContext.Provider value={{user, submitLogin, logout, submitRegister}}>
+    <UserContext.Provider
+      value={{userId, setUserId, submitLogin, logout, submitRegister}}>
       {children}
     </UserContext.Provider>
   );

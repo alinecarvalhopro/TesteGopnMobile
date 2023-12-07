@@ -1,23 +1,31 @@
 import {styles} from './style';
 import {theme} from '../../global/styles/theme';
 
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import {View, Image, TouchableOpacity, Text, ScrollView} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
-import {Card} from './Card/Card';
 import {UserContext} from '../../context/UserContext';
 import {PlaybookContext} from '../../context/PlaybookContext';
+import {CategoryContext} from '../../context/CategoryContext';
+
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
+import {PlaybookCard} from './PlaybookCard/PlaybookCard';
+import {CategoryButton} from './CategoryButton/CartegoryButton';
 
 export const Dashboard = () => {
-  const {user} = useContext(UserContext);
-  const {playbooks} = useContext(PlaybookContext);
+  const {userId} = useContext(UserContext);
+  const {playbooks, getPlaybooksByUser} = useContext(PlaybookContext);
+  const {categories} = useContext(CategoryContext);
 
   const navigation = useNavigation();
+
+  useEffect(() => {
+    getPlaybooksByUser(userId);
+  }, []);
 
   return (
     <ScrollView style={styles.dashboardContainer}>
@@ -45,9 +53,14 @@ export const Dashboard = () => {
         <Text style={styles.title}>Playbooks</Text>
         <View style={styles.categoriesSection}>
           <Text style={styles.subtitle}>Categorias</Text>
+          <View>
+            {categories.map(category => (
+              <CategoryButton key={category.id} name={category.name} />
+            ))}
+          </View>
           <TouchableOpacity
             style={styles.addCategoryButton}
-            onPress={() => console.log('Add category')}>
+            onPress={() => navigation.navigate('CreateCategory')}>
             <MaterialIcons
               name="add"
               size={28}
@@ -60,14 +73,14 @@ export const Dashboard = () => {
           </TouchableOpacity>
         </View>
         <View>
-          <Card
-            title="Nossa Metodologia"
-            text="Enteder a dor ou poblema que o cliente quer resolver;
-                  Mostrar os módulos que possam resolver o poblema do cliente;
-                  Montar a proposta comercial;
-                  Apresentar a proposta com a solução;
-                  Fazer follow up, após a proposta ser apresentada."
-          />
+          {playbooks.map(playbook => (
+            <PlaybookCard
+              key={playbook.id}
+              title={playbook.name}
+              text={playbook.description}
+              id={playbook.id}
+            />
+          ))}
         </View>
       </View>
       <TouchableOpacity

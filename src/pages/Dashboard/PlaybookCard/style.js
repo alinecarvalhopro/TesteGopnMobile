@@ -3,7 +3,7 @@ import { theme } from '../../../global/styles/theme';
 
 export const styles = ScaledSheet.create({
     cardContainer: {
-        minHeight: '250@s',
+        minHeight: '200@s',
         borderRadius: '20@s',
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,
@@ -15,13 +15,14 @@ export const styles = ScaledSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingRight: '20@s'
+        paddingRight: '20@s',
     },
     button: {
         width: '80@s',
-        height: '35@s'
+        height: '35@s',
     },
     title: {
+        flex: 1,
         color: theme.text.subtitle,
         fontFamily: theme.fonts.PoppinsMedium,
         fontSize: '16@s',

@@ -23,15 +23,16 @@ import LogoutIcon from '../images/svg/logout.svg';
 import {PrivateRoute} from '../pages/PrivateRoute/PrivateRoute';
 import {Login} from '../pages/Login/Login';
 import {Register} from '../pages/Register/Register';
-import { RegisteredSuccessfully } from '../pages/RegisteredSuccessfully/RegisteredSuccessfully';
+import {RegisteredSuccessfully} from '../pages/RegisteredSuccessfully/RegisteredSuccessfully';
 import {Dashboard} from '../pages/Dashboard/Dashboard';
 import {UpdateCard} from '../pages/UpdateCard/UpdateCard';
 import {CreateCard} from '../pages/CreateCard/CreateCard';
 import {GenericPage} from '../pages/GenericPage/GenericPage';
 
 import {UserContext, UserProvider} from '../context/UserContext';
-
 import {PlaybookProvider} from '../context/PlaybookContext';
+import {CategoryProvider} from '../context/CategoryContext';
+import { CreateCategory } from '../pages/CreateCategory/CreateCategory';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -39,6 +40,7 @@ const Drawer = createDrawerNavigator();
 const CustomDrawerContent = props => {
   const {logout} = useContext(UserContext);
   const navigation = useNavigation();
+
   return (
     <DrawerContentScrollView {...props}>
       <View
@@ -123,21 +125,30 @@ const AppStack = () => {
   return (
     <NavigationContainer>
       <UserProvider>
-        <PlaybookProvider>
-          <Stack.Navigator
-            initialRouteName="PrivateRoute"
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <Stack.Screen name="PrivateRoute" component={PrivateRoute} />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="RegisteredSuccessfully" component={RegisteredSuccessfully} />
-            <Stack.Screen name="DashboardDrawer" component={DrawerNavigation} />
-            <Stack.Screen name="UpdateCard" component={UpdateCard} />
-            <Stack.Screen name="CreateCard" component={CreateCard} />
-          </Stack.Navigator>
-        </PlaybookProvider>
+        <CategoryProvider>
+          <PlaybookProvider>
+            <Stack.Navigator
+              initialRouteName="PrivateRoute"
+              screenOptions={{
+                headerShown: false,
+              }}>
+              <Stack.Screen name="PrivateRoute" component={PrivateRoute} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Register" component={Register} />
+              <Stack.Screen
+                name="RegisteredSuccessfully"
+                component={RegisteredSuccessfully}
+              />
+              <Stack.Screen
+                name="DashboardDrawer"
+                component={DrawerNavigation}
+              />
+              <Stack.Screen name="UpdateCard" component={UpdateCard} />
+              <Stack.Screen name="CreateCard" component={CreateCard} />
+              <Stack.Screen name="CreateCategory" component={CreateCategory} />
+            </Stack.Navigator>
+          </PlaybookProvider>
+        </CategoryProvider>
       </UserProvider>
     </NavigationContainer>
   );

@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {Button} from '../../../components/Button/Button';
 
-export const Card = ({title, text}) => {
+export const PlaybookCard = ({title, text, id}) => {
   const navigation = useNavigation();
   return (
     <View>
@@ -16,7 +16,9 @@ export const Card = ({title, text}) => {
           <Button
             title="Editar"
             aditionalStyle={styles.button}
-            onPress={() => navigation.navigate('UpdateCard')}
+            onPress={() =>
+              navigation.navigate('UpdateCard', {playbookId: id, title, text})
+            }
           />
         </View>
         <Text style={styles.text}>{text}</Text>
