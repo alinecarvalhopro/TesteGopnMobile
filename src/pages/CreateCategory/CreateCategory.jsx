@@ -37,7 +37,6 @@ export const CreateCategory = () => {
 
   const onSubmit = formData => {
     createCategory(formData, reset, setLoading);
-    navigation.goBack();
   };
 
   return (

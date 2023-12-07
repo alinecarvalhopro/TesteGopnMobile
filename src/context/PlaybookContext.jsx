@@ -2,12 +2,16 @@ import React, {createContext, useState} from 'react';
 
 import {Keyboard} from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+
 import api from '../services/api';
 
 export const PlaybookContext = createContext();
 
 export const PlaybookProvider = ({children}) => {
   const [playbooks, setPlaybooks] = useState([]);
+
+  const navigation = useNavigation();
 
   const createPlaybook = async (formData, setLoading, reset) => {
     setLoading(true);

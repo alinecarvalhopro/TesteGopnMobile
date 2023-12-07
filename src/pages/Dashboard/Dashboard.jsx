@@ -19,12 +19,13 @@ import {CategoryButton} from './CategoryButton/CartegoryButton';
 export const Dashboard = () => {
   const {userId} = useContext(UserContext);
   const {playbooks, getPlaybooksByUser} = useContext(PlaybookContext);
-  const {categories} = useContext(CategoryContext);
+  const {categories, fetchCategories} = useContext(CategoryContext);
 
   const navigation = useNavigation();
 
   useEffect(() => {
     getPlaybooksByUser(userId);
+    fetchCategories();
   }, []);
 
   return (
@@ -54,7 +55,7 @@ export const Dashboard = () => {
         <View style={styles.categoriesSection}>
           <Text style={styles.subtitle}>Categorias</Text>
           <View>
-            {categories && categories.length > 0 ? (
+            {categories.length > 0 ? (
               categories.map(category => (
                 <CategoryButton key={category.id} name={category.name} />
               ))
