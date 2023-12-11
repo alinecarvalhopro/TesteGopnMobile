@@ -1,8 +1,8 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useContext} from 'react';
 
 import {Keyboard} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import {UserContext} from './UserContext';
 
 import api from '../services/api';
 
@@ -11,14 +11,21 @@ export const PlaybookContext = createContext();
 export const PlaybookProvider = ({children}) => {
   const [playbooks, setPlaybooks] = useState([]);
 
-  const navigation = useNavigation();
+  const {userId} = useContext(UserContext);
 
   const createPlaybook = async (formData, setLoading, reset) => {
     setLoading(true);
     try {
       const response = await api.post('/playbooks', formData);
-      const newPlaybook = Array.isArray(playbooks) ? playbooks : [];
-      setPlaybooks([...newPlaybook, response.data]);
+      // const newPlaybook = Array.isArray(playbooks) ? playbooks : [];
+      // setPlaybooks([...newPlaybook, response.data]);
+      if (!Array.isArray(playbooks)) {
+        setPlaybooks(playbooks);
+
+      } else {
+        setPlaybooks([...playbooks, response.data]);
+      }
+      getPlaybooksByUser(userId)
       reset();
       Keyboard.dismiss()
     } catch (error) {

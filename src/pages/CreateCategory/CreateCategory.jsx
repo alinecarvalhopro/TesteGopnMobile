@@ -13,6 +13,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {createCategorySchema} from '../../schema/categoryCreate.schema';
 
 import {CategoryContext} from '../../context/CategoryContext';
+import {UserContext} from '../../context/UserContext';
 
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -22,6 +23,7 @@ import {Input} from '../../components/Input/Input';
 export const CreateCategory = () => {
   const [loading, setLoading] = useState(false);
 
+  const {userId} = useContext(UserContext);
   const {createCategory} = useContext(CategoryContext);
 
   const navigation = useNavigation();
@@ -36,7 +38,11 @@ export const CreateCategory = () => {
   });
 
   const onSubmit = formData => {
-    createCategory(formData, reset, setLoading);
+    const categoryData = {
+      ...formData,
+      userId: userId,
+    };
+    createCategory(categoryData, reset, setLoading);
   };
 
   return (

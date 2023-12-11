@@ -25,7 +25,7 @@ export const styles = ScaledSheet.create({
         color: theme.text.title
     },
     categoriesSection: {
-        borderRadius: '20@s',
+        borderRadius: 10,
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,
         marginTop: '30@s',

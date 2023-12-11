@@ -4,7 +4,7 @@ import { theme } from '../../../global/styles/theme';
 export const styles = ScaledSheet.create({
     cardContainer: {
         minHeight: '200@s',
-        borderRadius: '20@s',
+        borderRadius: 10,
         borderWidth: 1,
         borderColor: theme.sectionsBox.borderColor,
         marginTop: '30@s',
