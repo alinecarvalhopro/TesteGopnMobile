@@ -1,3 +1,15 @@
+### Screens
+
+![1 Private Route Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/9eb41115-1af2-4eec-8905-009545fbc34b)
+![2 Login Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/f6ba9599-6e4d-4ac1-8e57-c4a7c3212f68)
+![3 Register Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/e66d186a-aa20-4ebd-b4a3-69def4709722)
+![4 Playbooks Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/2b6f80a6-99a5-419d-85b4-88b133dbd193)
+![5 Drawer Playbooks Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/63ab9cec-41e2-4e68-9849-cb48cc4a0120)
+![6 Create Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/8a45c8d1-a550-4de9-b8f4-523fd7582d80)
+![7 Update Screen](https://github.com/alinecarvalhopro/TesteGopnMobile/assets/118927052/87a6be67-d9c5-4687-8197-1aff6df673e3)
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
